@@ -72,7 +72,6 @@
 #### Блок-схема
 
 ```mermaid
-```mermaid
 graph TD 
     A([Начало]) --> B[/Ввод X, currentdom/]
     B --> C["f = true, n = 1, i = 0"]
