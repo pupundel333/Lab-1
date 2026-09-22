@@ -72,17 +72,14 @@
 #### Блок-схема
 
 ```mermaid
-([Начало]) --> B[/ввести X и currentdom/]
+graph TD 
+A([Начало]) --> B[/ввести X и currentdom/]
 B --> C[/ввести nextdom/]
 C -->D{currentdom >= X && f}
 D -- Нет -->F[/f = 0, n не растёт/]
 D -- Да --> G[/f остается 1, n+=1, currentdom = nextdom/]
 F --> [/вывод n/]
 G --> [/вывод n/]
-
-
-
-
 ```
 
 
