@@ -72,17 +72,28 @@
 #### Блок-схема
 
 ```mermaid
+```mermaid
 graph TD 
-A([Начало]) --> B[/ввести X и currentdom/]
-B --> C[/ввести nextdom/]
-C -->D{currentdom >= X && f}
-D -- Нет -->F[/f = 0, n не растёт/]
-D -- Да --> G[/f остается 1, n+=1, currentdom = nextdom/]
-F --> H[/вывод n/]
-G --> I[/вывод n/]
-H --> R([Конец])
-I --> R([Конец])
+    A([Начало]) --> B[/Ввод X, currentdom/]
+    B --> C["f = true, n = 1, i = 0"]
+    
+    C --> D{"i < 4 ?"}
+    
+    D -- Да --> E[/Ввод nextdom/]
+    E --> F{"currentdom >= X && f ?"}
+    
+    F -- Да --> G["n += 1 \n currentdom = nextdom"]
+    F -- Нет --> H["f = false"]
+    
+    G --> I["i += 1"]
+    H --> I
+    I --> D
+    
+    D -- Нет --> J[/Вывод n/]
+    J --> K([Конец])
 ```
+
+
 
 
 ### 5. Программа 
