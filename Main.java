@@ -14,11 +14,11 @@ public class Main {
         int X = in.nextInt();
 
         //длина первой домино("текущей")
-        int currentdom = in.nextInt();
+        int currentDom = in.nextInt();
 
-        //задаем флаговую переменную f логическим типом данных boolean
-        //если условие хоть один раз нарушится (f = false), то перестаем увеличивать n
-        boolean f = true;
+        //задаем флаговую переменную areAllPreviousFallen логическим типом данных boolean
+        //если условие хоть один раз нарушится (areAllPreviousFallen = false), то перестаем увеличивать n
+        boolean areAllPreviousFallen = true;
 
         //n - счётчик упавших домино, изначально = 1,
         // т.к первая домино в любом случае падает
@@ -27,15 +27,15 @@ public class Main {
         //задаем цикл от 0 до 4, чтобы 4 раз ввести переменные, т.к длину первой домино ввели уже до этого
         //на 1 шаге i = 0 и так далее до 3 включительно, то есть всего 4 повторения
         for (int i = 0; i<4; i+=1){
-            int nextdom = in.nextInt();
+            int nextDom = in.nextInt();
             //если текущая домино сможет "дотянуться" до следующей, при этом до этого все домино упали,
             //то тогда присваиваем значение следующей домино текущей, и для него уже проверяем дальше
-            //пишем f, а не f == true, т.к. условие и так проверится
-            if (currentdom>=X && f){
+            //пишем areAllPreviousFallen, а не areAllPreviousFallen == true, т.к. условие и так проверится
+            if (currentDom>=X && areAllPreviousFallen){
                 n+=1;
-                currentdom = nextdom;
+                currentDom = nextDom;
             }else{
-                f = false;
+                areAllPreviousFallen = false;
             }
         }
         //выводим кол-во упавших домино
