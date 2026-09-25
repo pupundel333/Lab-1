@@ -72,19 +72,30 @@
 #### Блок-схема
 
 ```mermaid
-graph TD 
-    A([Начало]) --> B[/Ввод X, currentdom/]
-    B --> C["f = true, n = 1, i = 0"]
-    C --> D{"i < 4 ?"}
-    D -- Да --> E[/Ввод nextdom/]
-    E --> F{"currentdom >= X && f ?"}
-    F -- Да --> G["n += 1 \n currentdom = nextdom"]
-    F -- Нет --> H["f = false"]
-    G --> I["i += 1"]
-    H --> I
-    I --> D
-    D -- Нет --> J[/Вывод n/]
-    J --> K([Конец])
+flowchart TD
+
+    A([Начало]) --> B[/Ввод X<br/>расстояние между домино/]
+    B --> C[/Ввод currentDom<br/>длина первой домино/]
+
+    C --> D[areAllPreviousFallen = true<br/>n = 1]
+    D --> E[i = 0]
+
+    E --> F{ i < 4? }
+
+    F -- Нет --> G[/Вывод n<br/>количество упавших домино/]
+    G --> H([Конец])
+
+    F -- Да --> I[/Ввод nextDom<br/>длина следующей домино/]
+
+    I --> J{currentDom >= X<br/>и<br/>areAllPreviousFallen?}
+
+    J -- Да --> K[n = n + 1<br/>currentDom = nextDom]
+    J -- Нет --> L[areAllPreviousFallen = false]
+
+    K --> M[i = i + 1]
+    L --> M
+
+    M --> F
 ```
 
 
